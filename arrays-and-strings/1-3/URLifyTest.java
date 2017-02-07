@@ -12,15 +12,15 @@ public class URLifyTest {
 
     @Test
     public void testSpace() {
-    	String s = "   "; 
-    	int l = 3;
-    	assertEquals("%20%20%20", URLify.urlify(s.toCharArray(), l));
+        String s = "   "; 
+        int l = 3;
+        assertEquals("%20%20%20", URLify.urlify(s.toCharArray(), l));
     }
     
     @Test
     public void testEmptyString() {
-    	String s = "";
-    	int l = 0;
-    	assertEquals("", URLify.urlify(s.toCharArray(), l));
+        String s = "";
+        int l = 0;
+        assertEquals("", URLify.urlify(s.toCharArray(), l));
     }
 }
