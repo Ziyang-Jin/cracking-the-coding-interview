@@ -5,22 +5,16 @@ import org.junit.Test;
 public class URLifyTest {
     @Test
     public void testSample() {
-        String s = "Mr John Smith   ";
-        int l = 13;
-        assertEquals("Mr%20John%20Smith", URLify.urlify(s.toCharArray(), l));
+        assertEquals("Mr%20John%20Smith", URLify.urlify(("Mr John Smith   ").toCharArray(), 13));
     }
 
     @Test
     public void testSpace() {
-        String s = "   "; 
-        int l = 3;
-        assertEquals("%20%20%20", URLify.urlify(s.toCharArray(), l));
+        assertEquals("%20%20%20", URLify.urlify(("   ").toCharArray(), 3));
     }
     
     @Test
     public void testEmptyString() {
-        String s = "";
-        int l = 0;
-        assertEquals("", URLify.urlify(s.toCharArray(), l));
+        assertEquals("", URLify.urlify(("").toCharArray(), 0));
     }
 }

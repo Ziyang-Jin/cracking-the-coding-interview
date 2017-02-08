@@ -6,50 +6,36 @@ import org.junit.Test;
 public class CheckPermutationTest {
     @Test
     public void sameString() {
-        String first = "abcde";
-        String second = "bdcae";
-        assertTrue(CheckPermutation.check(first, second));
+        assertTrue(CheckPermutation.check("abcde", "bdcae"));
     }
     
     @Test
     public void differentString() {
-        String first = "asdfg";
-        String second = "adfgw";
-        assertFalse(CheckPermutation.check(first, second));
+        assertFalse(CheckPermutation.check("asdfg", "adfgw"));
     }
     
     @Test
     public void differentLength() {
-        String first = "one";
-        String second = "three";
-        assertFalse(CheckPermutation.check(first, second));
+        assertFalse(CheckPermutation.check("one", "three"));
     }
     
     @Test
     public void twoEmtpyStrings() {
-        String first = "";
-        String second = "";
-        assertTrue(CheckPermutation.check(first, second));
+        assertTrue(CheckPermutation.check("", ""));
     }
     
     @Test
     public void twoSpaceStrings() {
-        String first = " ";
-        String second = " ";
-        assertTrue(CheckPermutation.check(first, second));
+        assertTrue(CheckPermutation.check(" ", " "));
     }
     
     @Test(expected = NullPointerException.class)
     public void oneNullString() {
-        String first = null;
-        String second = "abc";
-        CheckPermutation.check(first, second);
+        CheckPermutation.check(null, "abc");
     }
     
     @Test(expected = NullPointerException.class)
     public void twoNullStrings() {
-        String first = null;
-        String second = null;
-        CheckPermutation.check(first, second);
+        CheckPermutation.check(null, null);
     }
 }
