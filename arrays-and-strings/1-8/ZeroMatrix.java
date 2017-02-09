@@ -12,15 +12,13 @@ public class ZeroMatrix {
         }
     }
     
-    private static Info info;
-    
     public static void zeroMatrix(int[][] matrix, int m, int n) {
-        scanMatrix(matrix, m, n);
+        Info info = scanMatrix(matrix, m, n);
         setZero(matrix, m, n, info);
     }
     
-    private static void scanMatrix(int[][] matrix, int m, int n) {
-        info = new Info();
+    private static Info scanMatrix(int[][] matrix, int m, int n) {
+        Info info = new Info();
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (matrix[i][j] == 0) {
@@ -29,6 +27,7 @@ public class ZeroMatrix {
                 }
             }
         }
+        return info;
     }
     
     private static void setZero(int[][] matrix, int m, int n, Info info) {
