@@ -30,10 +30,11 @@ struct Node* partition(struct Node* head, int val) {
     }
     if (leftHead) {
         left->next = rightHead;
-	return leftHead;
     } else {
-        return rightHead;
+        leftHead = rightHead;
     }
+    printList(leftHead);
+    return leftHead;
 }
 
 int main(void) {
@@ -42,7 +43,11 @@ int main(void) {
     struct Node* tailList1 = getTail(list1);
     tailList1->next = list2;
     printList(list1);
-    struct Node* result = partition(list1, 3);
-    printList(result);
+    printf("partition 0:\n");
+    struct Node* result = partition(list1, 0);
+    printf("partition 4:\n");
+    result = partition(list1, 4);
+    printf("partition 3:\n");
+    result = partition(list1, 3);
     destroyList(result);
 }
