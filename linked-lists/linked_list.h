@@ -46,3 +46,11 @@ void destroyList(struct Node* head) {
 	ref = head;
     }
 }
+
+struct Node* getTail(struct Node* head) {
+    struct Node* ref = head;
+    while (ref && ref->next) {
+        ref = ref->next;
+    }
+    return ref;
+}
