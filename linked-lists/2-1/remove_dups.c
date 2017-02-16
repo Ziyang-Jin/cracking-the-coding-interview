@@ -1,25 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-struct Node {
-    int val;
-    struct Node* next;
-};
-
-void printList(struct Node* head) {
-    if (head) {
-        struct Node* ref = head;
-	printf("(");
-	while (ref) {
-	    printf("%d", ref->val);
-	    if (ref->next) {
-	        printf("->");
-	    }
-	    ref = ref->next;
-	}
-	printf(")\n");
-    }
-}
+#include "../linked_list.h"
 
 void removeAllSkipHead(int val, struct Node* head) {
     if (head) {
@@ -46,13 +27,6 @@ void removeDups(struct Node* head) {
     printList(head);
 }
 
-struct Node* makeNode(int val) {
-    struct Node* node = malloc(sizeof(struct Node));
-    node->val = val;
-    node->next = NULL;
-    return node;
-}
-
 struct Node* makeTestList() {
     struct Node* node0 = makeNode(1);
     struct Node* node1 = makeNode(1);
@@ -68,15 +42,6 @@ struct Node* makeTestList() {
     node4->next = node5;
     printList(head);
     return head;
-}
-
-void destroyList(struct Node* head) {
-    struct Node* ref = head;
-    while (head) {
-        head = head->next;
-	free(ref);
-	ref = head;
-    }
 }
 
 int main(void) {
