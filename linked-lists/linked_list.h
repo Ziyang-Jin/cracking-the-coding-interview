@@ -5,6 +5,10 @@ struct Node {
     struct Node* next;
 };
 
+void printNode(struct Node* node) {
+    printf("{ val : %d, next : %d }\n", node->val, (int)node->next);
+}
+
 void printList(struct Node* head) {
     if (head) {
         struct Node* ref = head;
@@ -18,6 +22,15 @@ void printList(struct Node* head) {
 	}
 	printf(")\n");
     }
+}
+
+int getSize(struct Node* head) {
+    int result = 0;
+    while (head) {
+        result++;
+	head = head->next;
+    }
+    return result;
 }
 
 struct Node* makeNode(int val) {

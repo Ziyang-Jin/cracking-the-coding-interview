@@ -37,4 +37,6 @@ int main(void) {
     printf("forward: list1 + list2 = %d\n", sum);
     sum = sumListsBackward(list1, list2);
     printf("backward: list1 + list2 = %d\n", sum);
+    destroyList(list1);
+    destroyList(list2);
 }
