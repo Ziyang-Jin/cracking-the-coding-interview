@@ -1,4 +1,4 @@
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -26,11 +26,12 @@ public class SetOfStacksTest {
 
 	@Test
 	public void testPopAt() {
-		final int LOOP = 32;
+		final int LOOP = 34;
 		for (int i = 0; i < LOOP; i++) {
 			sos.push(i);
 		}
-		assertEquals(9, sos.popAt(0));
-		assertEquals(20, sos.popAt(1));
+		assertEquals(SetOfStacks.STACK_SIZE-1, sos.popAt(0));
+		assertEquals(2*SetOfStacks.STACK_SIZE, sos.popAt(1));
+		assertEquals(3*SetOfStacks.STACK_SIZE+1, sos.popAt(2));
 	}
 }

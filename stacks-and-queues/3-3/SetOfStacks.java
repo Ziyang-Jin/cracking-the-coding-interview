@@ -1,7 +1,8 @@
 import java.util.ArrayList;
+import java.util.EmptyStackException;
 
 public class SetOfStacks {
-    private static final int STACK_SIZE = 10;
+    public static final int STACK_SIZE = 10;
     private ArrayList<int[]> listOfStacks = new ArrayList<int[]>();
     private int size = 0;
     
@@ -21,24 +22,32 @@ public class SetOfStacks {
     }
     
     public int pop() {
-    	int[] tempStack = getLastStack();
-    	int index = size % STACK_SIZE;
-    	int result = index != 0 ? tempStack[index - 1] : tempStack[STACK_SIZE - 1];
-    	size--;
-	    if (size % STACK_SIZE == 0) {
-	    	removeLastStack();
-	    }
-    	return result;
+    	if (size > 0) {
+    		int[] tempStack = getLastStack();
+    		int index = size % STACK_SIZE;
+    		int result = index != 0 ? tempStack[index - 1] : tempStack[STACK_SIZE - 1];
+    		size--;
+    		if (size % STACK_SIZE == 0) {
+    			removeLastStack();
+    		}
+    		return result;
+    	} else {
+    		throw new EmptyStackException();
+    	}
     }
     
     public int popAt(int index) {
-    	int numOfStacks = listOfStacks.size();
-    	if (index == numOfStacks-1) {
-    		return pop();
+    	if (size > 0) {
+    		int numOfStacks = listOfStacks.size();
+    		if (index == numOfStacks-1) {
+    			return pop();
+    		} else {
+    			int result = getPopAtResult(index);
+    			cleanUpStack(index);
+    			return result;
+    		}
     	} else {
-            int result = getPopAtResult(index);
-            cleanUpStack(index);
-    		return result;
+    		throw new EmptyStackException();
     	}
     }
     
