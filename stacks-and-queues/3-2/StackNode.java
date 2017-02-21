@@ -3,23 +3,23 @@ public class StackNode {
     private int min;
     
     public StackNode(int val, int min) {
-    	this.val = val;
-    	this.min = min;
+        this.val = val;
+        this.min = min;
     }
     
     public int getVal() {
-    	return val;
+        return val;
     }
     
     public int getMin() {
-    	return min;
+        return min;
     }
     
     public void setVal(int val) {
-    	this.val = val;
+        this.val = val;
     }
     
     public void setMin(int min) {
-    	this.min = min;
+        this.min = min;
     }
 }
