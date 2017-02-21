@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.EmptyStackException;
 
 public class StackMin {
     private ArrayList<StackNode> arr = new ArrayList<StackNode>();
@@ -19,16 +20,24 @@ public class StackMin {
     }
 
     public int pop() {
-    	int topIndex = arr.size() - 1;
-        StackNode topNode = arr.get(topIndex);
-        arr.remove(topIndex);
-        return topNode.getVal();
+    	if (arr.isEmpty()) {
+    		throw new EmptyStackException();
+    	} else {
+    		int topIndex = arr.size() - 1;
+    		StackNode topNode = arr.get(topIndex);
+    		arr.remove(topIndex);
+    		return topNode.getVal();
+    	}
     }
     
     public int min() {
-    	int minIndex = getMinIndex();
-    	StackNode minNode = arr.get(minIndex);
-    	return minNode.getVal();
+    	if (arr.isEmpty()) {
+    		throw new EmptyStackException();
+    	} else {
+    		int minIndex = getMinIndex();
+    		StackNode minNode = arr.get(minIndex);
+    		return minNode.getVal();
+    	}
     }
     
     private int getMinIndex() {

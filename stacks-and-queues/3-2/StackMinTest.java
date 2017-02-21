@@ -1,5 +1,5 @@
-import static org.junit.Assert.*;
-
+import static org.junit.Assert.assertEquals;
+import java.util.EmptyStackException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,12 +11,12 @@ public class StackMinTest {
 		sm = new StackMin();
 	}
 
-	@Test (expected = IndexOutOfBoundsException.class)
+	@Test (expected = EmptyStackException.class)
 	public void testException1() {
 		sm.pop();
 	}
 	
-	@Test (expected = IndexOutOfBoundsException.class)
+	@Test (expected = EmptyStackException.class)
 	public void testException2() {
 		sm.min();
 	}
