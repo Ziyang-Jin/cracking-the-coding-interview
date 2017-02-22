@@ -9,27 +9,27 @@ public class MyQueue<E> {
     }
     
     public E remove() {
-    	pour(s1, s2, s1.size()-1);
-    	E result = s1.pop();
-    	pour(s2, s1, s2.size());
-    	return result;
+        pour(s1, s2, s1.size()-1);
+        E result = s1.pop();
+        pour(s2, s1, s2.size());
+        return result;
     }
     
     public E peek() {
-    	pour(s1, s2, s1.size()-1);
-    	E result = s1.peek();
-    	pour(s2, s1, s2.size());
-    	return result;
+        pour(s1, s2, s1.size()-1);
+        E result = s1.peek();
+        pour(s2, s1, s2.size());
+        return result;
     }
     
     public boolean isEmpty() {
-    	return s1.isEmpty();
+        return s1.isEmpty();
     }
     
     private void pour(Stack<E> s1, Stack<E> s2, int n) {
-    	for (int i = 0; i < n; i++) {
-    		E item = s1.pop();
-    		s2.push(item);
-    	}
+        for (int i = 0; i < n; i++) {
+            E item = s1.pop();
+            s2.push(item);
+        }
     }
 }

@@ -1,4 +1,4 @@
 
 public enum Animal {
-	DOG, CAT
+    DOG, CAT
 }
