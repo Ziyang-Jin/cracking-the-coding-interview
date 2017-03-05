@@ -14,6 +14,8 @@ public class NodeTest {
 		Node b = new Node("b");
 		Node c = new Node("c");
 		Node d = new Node("d");
+		Node e = new Node("e");
+		b.addChild(e);
 		a.addChild(b);
 		a.addChild(c);
 		a.addChild(d);
