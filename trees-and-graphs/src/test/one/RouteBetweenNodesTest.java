@@ -17,6 +17,7 @@ public class RouteBetweenNodesTest {
 	Node b;
 	Node c;
 	Node d;
+	Node f;
 	
 	@Before
 	public void setUp() {
@@ -25,6 +26,7 @@ public class RouteBetweenNodesTest {
 		b = new Node("b");
 		c = new Node("c");
 	    d = new Node("d");
+	    f = new Node("f");
 		a.addChild(b);
 		a.addChild(c);
 		b.addChild(c);
@@ -51,6 +53,11 @@ public class RouteBetweenNodesTest {
 		assertFalse(RouteBetweenNodes.routeExist(g, d, a));
 		assertFalse(RouteBetweenNodes.routeExist(g, d, b));
 		assertFalse(RouteBetweenNodes.routeExist(g, d, c));
+		
+		assertFalse(RouteBetweenNodes.routeExist(g, a, f));
+		assertFalse(RouteBetweenNodes.routeExist(g, b, f));
+		assertFalse(RouteBetweenNodes.routeExist(g, c, f));
+		assertFalse(RouteBetweenNodes.routeExist(g, d, f));
 	}
 
 }

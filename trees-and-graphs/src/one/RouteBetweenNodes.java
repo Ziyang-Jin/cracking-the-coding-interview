@@ -1,6 +1,7 @@
 package one;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import definitions.Graph;
 import definitions.Node;
@@ -9,8 +10,8 @@ public class RouteBetweenNodes {
     public static boolean routeExist(Graph g, Node a, Node b) {
     	if (g.contains(a) && g.contains(b)) {
     		if (!a.equals(b)) { 
-    		    ArrayList<Node> visited = new ArrayList<Node>();
-    		    return dfs(g, a, b, visited);
+    		    return dfs(g, a, b, new ArrayList<Node>());
+    		    //return bfs(g, b, new LinkedList(a.children));
     		} else {
     			return true;
     		}
@@ -33,5 +34,17 @@ public class RouteBetweenNodes {
     	} else {
     	    return false;
     	}
+    }
+    
+    public static boolean bfs(Graph g, Node b, LinkedList<Node> queue) {
+    	while (!queue.isEmpty()) {
+    		Node first = queue.poll();
+    		if (first.equals(b)) {
+    			return true;
+    		} else {
+    			queue.addAll(first.children);
+    		}
+    	}
+    	return false;
     }
 }
