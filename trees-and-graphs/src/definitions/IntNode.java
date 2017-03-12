@@ -4,11 +4,13 @@ public class IntNode {
     public int val;
     public IntNode left;
     public IntNode right;
+    public IntNode parent;
     
     public IntNode(int val) {
     	this.val = val;
     	this.left = null;
     	this.right = null;
+    	this.parent = null;
     }
     
     public static void printNode(IntNode node, int level) {
