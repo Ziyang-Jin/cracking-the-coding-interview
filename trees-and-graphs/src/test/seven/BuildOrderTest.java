@@ -42,9 +42,12 @@ public class BuildOrderTest {
 	public void test() {
 		List<String> result = BuildOrder.computeBuildOrder(projects, dependencies);
 		printResult(result);
-//		assertEquals("f", result.get(0));
-//		assertEquals("e", result.get(1));
-//		assertEquals("a", result.get(2));
+		assertEquals("e", result.get(0));
+		assertEquals("f", result.get(1));
+		assertEquals("a", result.get(2));
+		assertEquals("b", result.get(3));
+		assertEquals("d", result.get(4));
+		assertEquals("c", result.get(5));
 	}
 	
 	public void printResult(List<String> result) {
