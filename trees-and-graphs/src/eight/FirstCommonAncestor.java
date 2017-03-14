@@ -12,6 +12,7 @@ public class FirstCommonAncestor {
     }
     
     public static boolean isAncestor(IntNode a, IntNode b) {
+    	if (a == null) return false;
     	if (b != null && b.parent != a) {
     		if (a.left != null && isAncestor(a.left, b)) {
     			return true;

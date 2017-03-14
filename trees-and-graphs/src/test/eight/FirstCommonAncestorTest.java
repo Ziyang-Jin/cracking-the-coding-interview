@@ -55,6 +55,17 @@ public class FirstCommonAncestorTest {
 		assertEquals(root, FirstCommonAncestor.findFCA(root.left.right, root.right.left));
 		assertEquals(root, FirstCommonAncestor.findFCA(root.left.left, root.right.right));
 		assertEquals(root, FirstCommonAncestor.findFCA(root.left.right, root.right.right));
+		
+		assertEquals(root, FirstCommonAncestor.findFCA(root.left, root.left.left));
+		assertEquals(root, FirstCommonAncestor.findFCA(root.left, root.left.right));
+		
+		assertEquals(null, FirstCommonAncestor.findFCA(root, root.left));
+		assertEquals(null, FirstCommonAncestor.findFCA(root, root.left.left));
+		assertEquals(null, FirstCommonAncestor.findFCA(root, root.left.right));
+		assertEquals(null, FirstCommonAncestor.findFCA(root, root.right));
+		assertEquals(null, FirstCommonAncestor.findFCA(root, root.right.left));
+		assertEquals(null, FirstCommonAncestor.findFCA(root, root.right.right));
+		
 	}
 
 }
